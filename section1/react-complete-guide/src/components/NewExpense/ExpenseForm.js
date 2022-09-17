@@ -9,13 +9,13 @@ const ExpenseForm = props => {
   const [enteredDatee, setEnteredDate] = useState('');
 
   const titleChangeHandler = e => setEnteredTitle(e.target.value);
-  const amountChangeHandler = e => setEnteredAmount(+e.target.value);
+  const amountChangeHandler = e => setEnteredAmount(e.target.value);
   const dateChangeHandler = e => setEnteredDate(e.target.value);
   const submitHandler = e => {
     e.preventDefault();
     const expenseDate = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDatee),
     };
 
