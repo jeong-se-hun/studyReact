@@ -1,12 +1,25 @@
+import React, { useRef, useImperativeHandle } from 'react';
 import styles from './Input.module.css';
 
-const Input = props => {
+const Input = React.forwardRef((props, ref) => {
+  // const inputRef = useRef();
+  // const activate = () => inputRef.current.focus();
+  // useImperativeHandle(ref, () => {
+  //   return { focus: () => inputRef.current.focus() };
+  // });
   return (
     <div className={`${styles.control} ${props.IsValid === false ? styles.invalid : ''}`}>
       <label htmlFor={props.id}>{props.label}</label>
-      <input type={props.type} id={props.id} value={props.value} onChange={props.onChange} onBlur={props.onBlur} />
+      <input
+        ref={ref}
+        type={props.type}
+        id={props.id}
+        value={props.value}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
+      />
     </div>
   );
-};
+});
 
 export default Input;
