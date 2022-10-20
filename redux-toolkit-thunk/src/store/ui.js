@@ -24,6 +24,7 @@ const uiSlice = createSlice({
     },
   },
   extraReducers: builder => {
+    console.log(builder);
     builder.addCase(sendCartData.pending, (state, action) => {
       state.notification = {
         status: 'pending',
