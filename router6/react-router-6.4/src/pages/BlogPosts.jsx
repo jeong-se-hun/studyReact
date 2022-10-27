@@ -19,7 +19,7 @@ function BlogPostsPage() {
 }
 
 export default BlogPostsPage;
-export const loader = () => defer({ posts: getPosts() });
+export const loader = async () => defer({ posts: await getPosts() });
 
 // function BlogPostsPage() {
 //   const [error, setError] = useState();
